@@ -1,26 +1,94 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FaceDetection2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MlY-ZG-szl">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Face Detection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzU-rp-Dt1">
+                                        <frame key="frameInset" minX="88" minY="47" width="144" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="IHU-FW-zxz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="6nV-Ya-NHI"/>
+                                    <constraint firstItem="KzU-rp-Dt1" firstAttribute="centerX" secondItem="MlY-ZG-szl" secondAttribute="centerX" id="t9A-aq-MCO"/>
+                                    <constraint firstAttribute="bottom" secondItem="KzU-rp-Dt1" secondAttribute="bottom" constant="8" id="ySf-73-Klp"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="Um6-GF-pO2">
+                                <subviews>
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="yRs-Z3-gIL">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="128" id="fec-hf-F36"/>
+                                            <constraint firstAttribute="height" constant="128" id="o28-sD-0zn"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="bIw-wC-8D5">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="5wt-fp-2Of"/>
+                                            <constraint firstAttribute="width" constant="128" id="boh-cb-QSm"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mw1-gr-bRF" customClass="CheckButton" customModule="FaceDetection2" customModuleProvider="target">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="OUD-Kc-JT5"/>
+                                    <constraint firstAttribute="width" constant="161" id="l6D-yW-IAB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Check for Match">
+                                    <color key="titleColor" red="0.041124131944444448" green="0.061903211805555552" blue="0.85500759548611116" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="CheckForMatchWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tfI-Sy-PGK"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="MlY-ZG-szl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="2NZ-9C-lkc"/>
+                            <constraint firstAttribute="trailing" secondItem="MlY-ZG-szl" secondAttribute="trailing" id="2gK-7D-AGJ"/>
+                            <constraint firstItem="Um6-GF-pO2" firstAttribute="top" secondItem="MlY-ZG-szl" secondAttribute="bottom" constant="85" id="7qS-Me-7ai"/>
+                            <constraint firstItem="Mw1-gr-bRF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Fgb-XO-Ezb"/>
+                            <constraint firstItem="Mw1-gr-bRF" firstAttribute="top" secondItem="Um6-GF-pO2" secondAttribute="bottom" constant="107" id="WHf-6c-WBq"/>
+                            <constraint firstItem="Um6-GF-pO2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b8N-GD-hzQ"/>
+                            <constraint firstItem="MlY-ZG-szl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ueU-mK-UON"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="person1Image" destination="yRs-Z3-gIL" id="qkI-Bu-27c"/>
+                        <outlet property="person2Image" destination="bIw-wC-8D5" id="4c9-Y4-heo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.875" y="138.38028169014083"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="profile" width="770" height="756"/>
+    </resources>
 </document>

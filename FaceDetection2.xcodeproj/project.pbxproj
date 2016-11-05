@@ -12,6 +12,11 @@
 		5ED711F41DC51DCF00F49D46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ED711F21DC51DCF00F49D46 /* Main.storyboard */; };
 		5ED711F61DC51DCF00F49D46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ED711F51DC51DCF00F49D46 /* Assets.xcassets */; };
 		5ED711F91DC51DCF00F49D46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ED711F71DC51DCF00F49D46 /* LaunchScreen.storyboard */; };
+		5ED712011DC51DE100F49D46 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED712001DC51DE100F49D46 /* Person.swift */; };
+		5ED712031DC51DED00F49D46 /* FaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED712021DC51DED00F49D46 /* FaceService.swift */; };
+		5ED712051DC51E0600F49D46 /* CheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED712041DC51E0600F49D46 /* CheckButton.swift */; };
+		5ED712081DC51FD400F49D46 /* Deleted.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ED712071DC51FD400F49D46 /* Deleted.m */; };
+		B1DB559A5B53C33C90BEEB1B /* Pods_FaceDetection2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A094E64314D7ED7A05D4F219 /* Pods_FaceDetection2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,14 @@
 		5ED711F51DC51DCF00F49D46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5ED711F81DC51DCF00F49D46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5ED711FA1DC51DCF00F49D46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5ED712001DC51DE100F49D46 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		5ED712021DC51DED00F49D46 /* FaceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceService.swift; sourceTree = "<group>"; };
+		5ED712041DC51E0600F49D46 /* CheckButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckButton.swift; sourceTree = "<group>"; };
+		5ED712061DC51FD300F49D46 /* FaceDetection2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FaceDetection2-Bridging-Header.h"; sourceTree = "<group>"; };
+		5ED712071DC51FD400F49D46 /* Deleted.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deleted.m; sourceTree = "<group>"; };
+		6B064FD97897345DDF67CBAB /* Pods-FaceDetection2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceDetection2.release.xcconfig"; path = "Pods/Target Support Files/Pods-FaceDetection2/Pods-FaceDetection2.release.xcconfig"; sourceTree = "<group>"; };
+		86A0D62F10081D142BE483E2 /* Pods-FaceDetection2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceDetection2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FaceDetection2/Pods-FaceDetection2.debug.xcconfig"; sourceTree = "<group>"; };
+		A094E64314D7ED7A05D4F219 /* Pods_FaceDetection2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceDetection2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +42,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1DB559A5B53C33C90BEEB1B /* Pods_FaceDetection2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41203F62EEC6F3A002D8DC9A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A094E64314D7ED7A05D4F219 /* Pods_FaceDetection2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5ED711E21DC51DCF00F49D46 = {
 			isa = PBXGroup;
 			children = (
 				5ED711ED1DC51DCF00F49D46 /* FaceDetection2 */,
 				5ED711EC1DC51DCF00F49D46 /* Products */,
+				74C3C0C30B4D84FB8880329C /* Pods */,
+				41203F62EEC6F3A002D8DC9A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +84,22 @@
 				5ED711F51DC51DCF00F49D46 /* Assets.xcassets */,
 				5ED711F71DC51DCF00F49D46 /* LaunchScreen.storyboard */,
 				5ED711FA1DC51DCF00F49D46 /* Info.plist */,
+				5ED712001DC51DE100F49D46 /* Person.swift */,
+				5ED712021DC51DED00F49D46 /* FaceService.swift */,
+				5ED712041DC51E0600F49D46 /* CheckButton.swift */,
+				5ED712071DC51FD400F49D46 /* Deleted.m */,
+				5ED712061DC51FD300F49D46 /* FaceDetection2-Bridging-Header.h */,
 			);
 			path = FaceDetection2;
+			sourceTree = "<group>";
+		};
+		74C3C0C30B4D84FB8880329C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				86A0D62F10081D142BE483E2 /* Pods-FaceDetection2.debug.xcconfig */,
+				6B064FD97897345DDF67CBAB /* Pods-FaceDetection2.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +109,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5ED711FD1DC51DCF00F49D46 /* Build configuration list for PBXNativeTarget "FaceDetection2" */;
 			buildPhases = (
+				C108EA5685D20D4263C115EE /* [CP] Check Pods Manifest.lock */,
 				5ED711E71DC51DCF00F49D46 /* Sources */,
 				5ED711E81DC51DCF00F49D46 /* Frameworks */,
 				5ED711E91DC51DCF00F49D46 /* Resources */,
+				B0EAE473E36CA3CF2C53F638 /* [CP] Embed Pods Frameworks */,
+				BDBF37D62CF6E76078149452 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +137,7 @@
 				TargetAttributes = {
 					5ED711EA1DC51DCF00F49D46 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -131,13 +173,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B0EAE473E36CA3CF2C53F638 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FaceDetection2/Pods-FaceDetection2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDBF37D62CF6E76078149452 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FaceDetection2/Pods-FaceDetection2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C108EA5685D20D4263C115EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5ED711E71DC51DCF00F49D46 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ED712031DC51DED00F49D46 /* FaceService.swift in Sources */,
+				5ED712011DC51DE100F49D46 /* Person.swift in Sources */,
 				5ED711F11DC51DCF00F49D46 /* ViewController.swift in Sources */,
+				5ED712051DC51E0600F49D46 /* CheckButton.swift in Sources */,
 				5ED711EF1DC51DCF00F49D46 /* AppDelegate.swift in Sources */,
+				5ED712081DC51FD400F49D46 /* Deleted.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,24 +352,33 @@
 		};
 		5ED711FE1DC51DCF00F49D46 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86A0D62F10081D142BE483E2 /* Pods-FaceDetection2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = FaceDetection2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.LucheoTombini.FaceDetection2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FaceDetection2/FaceDetection2-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		5ED711FF1DC51DCF00F49D46 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B064FD97897345DDF67CBAB /* Pods-FaceDetection2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = FaceDetection2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.LucheoTombini.FaceDetection2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FaceDetection2/FaceDetection2-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -299,6 +402,7 @@
 				5ED711FF1DC51DCF00F49D46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
