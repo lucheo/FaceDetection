@@ -13,8 +13,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var person1Image: UIImageView!
     @IBOutlet weak var person2Image: UIImageView!
     
-    var imagePicker1 = UIImagePickerController()
-    var imagePicker2 = UIImagePickerController()
+    var imagePicker = UIImagePickerController()
+    
     
     var image1BeingPicked = false
     var image2BeingPicked = false
@@ -22,8 +22,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var image1Picked = false
     var image2Picked = false
     
-    var person1: Person?
-    var person2: Person?
+    var person1ID: String?
+    var person2ID: String?
+    
+    
+    
     var match: Bool = false
     var confidenceLevel: NSNumber!
     
@@ -34,87 +37,78 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imagePicker1.delegate = self
-        imagePicker2.delegate = self
+        imagePicker.delegate = self
         
-        let tap1 = UITapGestureRecognizer(target: self, action: #selector(loadPicker1(gesture:)))
-        
-        let tap2 = UITapGestureRecognizer(target: self, action: #selector(loadPicker2(gesture:)))
-        
-        tap1.numberOfTapsRequired = 1
-        tap2.numberOfTapsRequired = 1
-        
-        person1Image.addGestureRecognizer(tap1)
-        
-        
-        person2Image.addGestureRecognizer(tap2)
-
-    }
+        }
+    
+    
+    
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            if image1BeingPicked == true {
+            if image1BeingPicked {
                 person1Image.image = pickedImage
                 image1Picked = true
                 
-                if let img = person1Image.image, let imgData = UIImageJPEGRepresentation(img, 0.8) {
-                    FaceService.instance.client?.detect(with: imgData, returnFaceId: true, returnFaceLandmarks: false, returnFaceAttributes: nil, completionBlock: { (faces, err) in
-                        if err == nil {
-                            for face in faces! {
-                                self.person1?.faceid = face.faceId
-                                print("\(self.person1?.faceid)")
-                                break
-                            }
-                        } else {
-                            print(err.debugDescription)
-                        }
-                    })
-                }
-                
-                
-            } else if  image2BeingPicked == true {
+            } else if image2BeingPicked {
                 person2Image.image = pickedImage
                 image2Picked = true
                 
-                if let img = person2Image.image, let imgData = UIImageJPEGRepresentation(img, 0.8) {
-                    FaceService.instance.client?.detect(with: imgData, returnFaceId: true, returnFaceLandmarks: false, returnFaceAttributes: nil, completionBlock: { (faces, err) in
-                        if err == nil {
-                            for face in faces! {
-                                self.person2?.faceid = face.faceId
-                                print("\(self.person2?.faceid)")
-                            }
-                        } else {
-                            print(err.debugDescription)
-                        }
-                            
-                    })
-                }
+            } else {
+                print("Error picking image")
             }
-            
+            Detect()
         }
-        image1BeingPicked = false
-        image2BeingPicked = false
-        
         dismiss(animated: true, completion: nil)
     }
     
-    func loadPicker1(gesture: UITapGestureRecognizer) {
-        imagePicker1.allowsEditing = false
-        imagePicker1.sourceType = .photoLibrary
-        image1BeingPicked = true
-        
-        present(imagePicker1, animated: true, completion: nil)
-        
-        
-        
+    func Detect() {
+        if image1Picked {
+            if let img = person1Image.image, let imgData = UIImageJPEGRepresentation(img, 0.8) {
+                FaceService.instance.client?.detect(with: imgData, returnFaceId: true, returnFaceLandmarks: false, returnFaceAttributes: nil, completionBlock: { (faces, error) in
+                    if error == nil {
+                        var faceid: String?
+                        for face in faces! {
+                            faceid = face.faceId
+                            break
+                            
+                            
+                        }
+                        self.person1ID = faceid
+                    }
+                })
+            }
+        } else if image2Picked {
+            if let img = person2Image.image, let imgData = UIImageJPEGRepresentation(img, 0.8) {
+                FaceService.instance.client?.detect(with: imgData, returnFaceId: true, returnFaceLandmarks: false, returnFaceAttributes: nil, completionBlock: { (faces, error) in
+                    if error == nil {
+                        var faceid: String?
+                        for face in faces! {
+                            faceid = face.faceId
+                            break
+                            
+                        }
+                        self.person2ID = faceid
+                    }
+                })
+            }
+            
+        } else {
+            print("Error: images not picked")
+        }
     }
+
     
-    func loadPicker2(gesture: UITapGestureRecognizer) {
-        imagePicker2.allowsEditing = false
-        imagePicker2.sourceType = .photoLibrary
-        image2BeingPicked = true
+    func loadPicker() {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
         
-        present(imagePicker2, animated: true, completion: nil)
+        
+        present(imagePicker, animated: true, completion: nil)
+        
+        
+        
     }
     
     func ShowErrorAlert() {
@@ -125,7 +119,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func ShowResults(Match: Bool, Confidence: NSNumber ) {
-        let alert = UIAlertController(title: "Results", message: "Identical: \(Match) /n Confidence: \(Confidence) ", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Results", message: "Identical: \(Match) -- Confidence: \(Confidence) ", preferredStyle: UIAlertControllerStyle.alert)
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
@@ -133,8 +127,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func CheckForMatch(sender: Any) {
         if image1Picked && image2Picked {
-            if person1?.faceid != nil && person2?.faceid != nil {
-                FaceService.instance.client?.verify(withFirstFaceId: self.person1!.faceid, faceId2: self.person2!.faceid, completionBlock: { (result, err) in
+                FaceService.instance.client?.verify(withFirstFaceId: self.person1ID, faceId2: self.person2ID, completionBlock: { (result, err) in
                     if err == nil {
                         print(result?.confidence)
                         print(result?.isIdentical)
@@ -148,7 +141,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         print(err.debugDescription)
                     }
                 })
-            }
+            
             
                 
             
@@ -162,7 +155,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
 
+    @IBAction func onImage1Selected(_ sender: UIButton) {
+        if !image2BeingPicked {
+            image1BeingPicked = true
+        } else {
+            image2BeingPicked = false
+            image1BeingPicked = true
+        }
+        
+        loadPicker()
+    }
 
+    @IBAction func onImage2Selected(_ sender: UIButton) {
+        if !image1BeingPicked {
+            image2BeingPicked = true
+        } else {
+            image1BeingPicked = false
+            image2BeingPicked = true
+        }
+
+        loadPicker()
+    }
     
 }
 

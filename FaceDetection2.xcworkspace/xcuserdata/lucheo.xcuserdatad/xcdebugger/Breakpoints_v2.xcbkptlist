@@ -6,17 +6,65 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FaceDetection2/ViewController.swift"
-            timestampString = "500037461.179883"
+            timestampString = "500349767.694859"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "CheckForMatch(sender:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FaceDetection2/ViewController.swift"
+            timestampString = "500349767.694859"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "CheckForMatch(sender:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FaceDetection2.ViewController.CheckForMatch (sender : Any) -&gt; ()"
+                  moduleName = "FaceDetection2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lucheo/Documents/iOSandSwiftCourse/FaceDetection2/FaceDetection2/ViewController.swift"
+                  timestampString = "500349478.316395"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "809">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FaceDetection2.ViewController.(CheckForMatch (sender : Any) -&gt; ()).(closure #1)"
+                  moduleName = "FaceDetection2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lucheo/Documents/iOSandSwiftCourse/FaceDetection2/FaceDetection2/ViewController.swift"
+                  timestampString = "500349478.319106"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

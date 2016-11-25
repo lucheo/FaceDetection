@@ -39,13 +39,13 @@
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="Um6-GF-pO2">
                                 <subviews>
-                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="yRs-Z3-gIL">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="yRs-Z3-gIL">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="128" id="fec-hf-F36"/>
                                             <constraint firstAttribute="height" constant="128" id="o28-sD-0zn"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="bIw-wC-8D5">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="bIw-wC-8D5">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="5wt-fp-2Of"/>
                                             <constraint firstAttribute="width" constant="128" id="boh-cb-QSm"/>
@@ -60,10 +60,29 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal" title="Check for Match">
-                                    <color key="titleColor" red="0.041124131944444448" green="0.061903211805555552" blue="0.85500759548611116" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.041124131944444448" green="0.061903211805555552" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="CheckForMatchWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tfI-Sy-PGK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="prr-7o-Red" userLabel="Button1">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="74M-KU-M7g"/>
+                                    <constraint firstAttribute="width" constant="128" id="Enl-1Z-L5Q"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="onImage1Selected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7yo-Dp-H13"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtN-Sl-gnw" userLabel="Button2">
+                                <frame key="frameInset" minX="176" minY="170" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="BwU-da-Fcp"/>
+                                    <constraint firstAttribute="height" constant="128" id="KXd-NL-4Qt"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="onImage2Selected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iG1-ga-xby"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -71,11 +90,15 @@
                         <constraints>
                             <constraint firstItem="MlY-ZG-szl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="2NZ-9C-lkc"/>
                             <constraint firstAttribute="trailing" secondItem="MlY-ZG-szl" secondAttribute="trailing" id="2gK-7D-AGJ"/>
+                            <constraint firstItem="jtN-Sl-gnw" firstAttribute="trailing" secondItem="Um6-GF-pO2" secondAttribute="trailing" id="3Fa-If-LoJ"/>
                             <constraint firstItem="Um6-GF-pO2" firstAttribute="top" secondItem="MlY-ZG-szl" secondAttribute="bottom" constant="85" id="7qS-Me-7ai"/>
                             <constraint firstItem="Mw1-gr-bRF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Fgb-XO-Ezb"/>
+                            <constraint firstItem="Um6-GF-pO2" firstAttribute="leading" secondItem="prr-7o-Red" secondAttribute="leading" id="GOG-eN-hc0"/>
                             <constraint firstItem="Mw1-gr-bRF" firstAttribute="top" secondItem="Um6-GF-pO2" secondAttribute="bottom" constant="107" id="WHf-6c-WBq"/>
                             <constraint firstItem="Um6-GF-pO2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b8N-GD-hzQ"/>
+                            <constraint firstItem="Um6-GF-pO2" firstAttribute="top" secondItem="prr-7o-Red" secondAttribute="top" id="hSL-Kf-bmy"/>
                             <constraint firstItem="MlY-ZG-szl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ueU-mK-UON"/>
+                            <constraint firstItem="jtN-Sl-gnw" firstAttribute="top" secondItem="Um6-GF-pO2" secondAttribute="top" id="zOc-FU-uWs"/>
                         </constraints>
                     </view>
                     <connections>
